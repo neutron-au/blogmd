@@ -15,8 +15,13 @@ def markdown_to_html(content:str=None):
 
 blog_template = get_template('file/view_blog.html')
 
-# html_content = markdown_to_html(markdown_text)
-# x = blog_template.render(blog_html=html_content)
-# with open('a.html', 'w+') as file:
-#     file.write(x)
-#     file.close()
+
+def generate_page(md_path:str=None):
+    with open(md_path, 'r+') as file:
+        blog_md = file.read()
+        file.close()
+
+        blog_md_html = markdown_to_html(blog_md)
+        blog_template = get_template('file/view_blog.html')
+
+        return blog_template.render(blog_html=blog_md_html)
