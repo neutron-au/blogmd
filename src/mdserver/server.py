@@ -4,11 +4,11 @@ from .util import generate_page
 
 
     
-
 def get_file(filename):
     # return 404 if file doesn't exist
     if f'{filename}' not in os.listdir('file/') : return generate_page('error/404.md'), 404
     return flask.send_file(f'file/{filename}')
+
 
 def start(host:str='0.0.0.0', port:int=8080, debug:bool=False) -> flask.Flask:
     app = flask.Flask('markdown-server')
