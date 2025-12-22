@@ -5,6 +5,15 @@ import flask
 
 CONTENT_DIR = 'content'
 
+def make_default_dirs():
+    dirs = [
+        os.path.join(CONTENT_DIR),
+        os.path.join(CONTENT_DIR, 'blog'),
+        os.path.join(CONTENT_DIR, 'error'),
+        os.path.join(CONTENT_DIR, 'file'),
+    ]
+    for dir in dirs: os.makedirs(dir, exist_ok=True)
+
 def get_template(path:str=None) -> jinja2.Template:
     if path == None : raise Exception('path value must not be None')
     path = os.path.join(CONTENT_DIR, path)
@@ -21,6 +30,9 @@ def send_file_raw(path:str=None):
     path = os.path.join(CONTENT_DIR, path)
     return flask.send_file(path)
 
+
+def get_blog_page(path:str=None):
+    pass
 
 def generate_page(path:str=None):
     try:
