@@ -1,4 +1,4 @@
-<img src="![drawing.jpg](https://github.com/neutron-au/blogmd/blob/main/logo.png?raw=true)" alt="logo" width="128"/>
+<img src="https://github.com/neutron-au/blogmd/blob/main/logo.png?raw=true" alt="logo" width="128"/>
 
 # BlogMD
 #### Neutron Australia
