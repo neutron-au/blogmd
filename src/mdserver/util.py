@@ -1,7 +1,10 @@
 import os
 import jinja2
 import markdown
+import markdown.extensions.fenced_code, markdown.extensions.tables
 import flask
+
+MD_EXTENSIONS = ['tables', 'fenced_code']
 
 CONTENT_DIR = 'content'
 
@@ -27,7 +30,7 @@ def get_template(path:str=None) -> jinja2.Template:
 
 def markdown_to_html(content:str=None):
     if content == None : raise Exception('content value must not be None')
-    return markdown.markdown(content, extensions=['tables'])
+    return markdown.markdown(content, extensions=MD_EXTENSIONS)
 
 def send_file_raw(path:str=None):
     path = os.path.join(CONTENT_DIR, path)
@@ -38,12 +41,10 @@ def get_blog_page(path:str=None):
     split_path = list(filter(None, path.split('/')))
     # /blog/project/chapter/index.md
     index_path = os.path.join(*split_path, 'index.md')
-    print(index_path)
     if path_exists(index_path) : return generate_page(index_path) ; print('INDEX PAGE EXISTS')
     # /blog/project/chapter.md
     split_path[-1] = split_path[-1] + '.md'
     blog_path = os.path.join(*split_path)
-    print(blog_path)
     if path_exists(blog_path) : return generate_page(blog_path) ; print('BLOG PAGE EXISTS')
     return generate_page('error/404.md')
 
@@ -51,7 +52,6 @@ def get_blog_page(path:str=None):
 def generate_page(path:str=None):
     try:
         path = os.path.join(CONTENT_DIR, path)
-        print(path)
         with open(path, 'r+') as file:
             blog_md = file.read()
             file.close()

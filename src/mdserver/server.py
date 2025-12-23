@@ -13,6 +13,10 @@ def start(host:str='0.0.0.0', port:int=8080, debug:bool=False) -> flask.Flask:
     app = flask.Flask('markdown-server')
     app.url_map.strict_slashes = False
 
+    # /favicon.ico
+    @app.route('/favicon.ico', methods=['GET'])
+    def favicon() : return generate_page('error/404.md'), 404
+
     # /
     @app.route('/', methods=['GET'])
     def root() : return '/blog/', 304
@@ -32,7 +36,6 @@ def start(host:str='0.0.0.0', port:int=8080, debug:bool=False) -> flask.Flask:
         # /file/ branch
         if domain == 'file':
             path = os.path.join(*split_branch)
-            print(path)
             return send_file_raw(path)
         
         # /blog/ branch
