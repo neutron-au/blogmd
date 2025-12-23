@@ -1,4 +1,4 @@
-![logo](https://github.com/neutron-au/blogmd/logo.png)
+![logo](https://github.com/neutron-au/blogmd/blob/main/logo.png?raw=true)
 # BlogMD
 #### Neutron Australia
 
