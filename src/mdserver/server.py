@@ -1,6 +1,6 @@
 import os
 import flask
-from .util import make_default_dirs, generate_page, send_file_raw
+from .util import make_default_dirs, generate_page, send_file_raw, get_blog_page
 
 
 def get_file(filename):
@@ -29,18 +29,14 @@ def start(host:str='0.0.0.0', port:int=8080, debug:bool=False) -> flask.Flask:
         #
         split_branch = list(filter(None, branch.split('/')))
         domain = split_branch[0]
-        print(f'domain="{domain}", split_branch={split_branch}')
-        print(domain)
+        # /file/ branch
         if domain == 'file':
             path = os.path.join(*split_branch)
             print(path)
             return send_file_raw(path)
-            
-        if domain == 'blog':
-            split_branch[-1] = split_branch[-1] + '.md'
-            return generate_page(os.path.join(*split_branch)) 
         
-        return generate_page('error/404.md')
+        # /blog/ branch
+        if domain == 'blog' : return get_blog_page(branch)
 
     make_default_dirs()
     app.run(host, port, debug)

@@ -5,6 +5,9 @@ import flask
 
 CONTENT_DIR = 'content'
 
+def path_exists(path:str=None):
+    return os.path.exists(os.path.join(CONTENT_DIR, path))
+
 def make_default_dirs():
     dirs = [
         os.path.join(CONTENT_DIR),
@@ -32,7 +35,18 @@ def send_file_raw(path:str=None):
 
 
 def get_blog_page(path:str=None):
-    pass
+    split_path = list(filter(None, path.split('/')))
+    # /blog/project/chapter/index.md
+    index_path = os.path.join(*split_path, 'index.md')
+    print(index_path)
+    if path_exists(index_path) : return generate_page(index_path) ; print('INDEX PAGE EXISTS')
+    # /blog/project/chapter.md
+    split_path[-1] = split_path[-1] + '.md'
+    blog_path = os.path.join(*split_path)
+    print(blog_path)
+    if path_exists(blog_path) : return generate_page(blog_path) ; print('BLOG PAGE EXISTS')
+    return generate_page('error/404.md')
+
 
 def generate_page(path:str=None):
     try:
