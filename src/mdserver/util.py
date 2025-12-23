@@ -1,10 +1,10 @@
 import os
 import jinja2
 import markdown
-import markdown.extensions.fenced_code, markdown.extensions.tables
+import markdown.extensions.fenced_code, markdown.extensions.tables, markdown.extensions.admonition, markdown.extensions.codehilite
 import flask
 
-MD_EXTENSIONS = ['tables', 'fenced_code']
+MD_EXTENSIONS = ['tables', 'fenced_code', 'admonition', 'codehilite']
 
 CONTENT_DIR = 'content'
 
