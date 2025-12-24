@@ -1,21 +1,107 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-theme="light">
 <head>
-    <link rel="stylesheet" href="/file/dark-style.css">    
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>{{ title }}</title>
+
+  <link rel="stylesheet" href="/file/style.css" />
 </head>
 
 <body>
-    <div class="container">
-        <div>
-            <article class="markdown-body left-section">
-                <h3>Navigation</h3>
-            </article>   
+  <div class="app">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="/">
+          <span class="brand-mark">COMMON SYSTEMS</span>
+        </a>
+
+        <div class="topbar-spacer"></div>
+
+        <!-- theme switch (top right) -->
+        <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="theme-toggle-track" aria-hidden="true">
+            <span class="theme-toggle-thumb" aria-hidden="true"></span>
+          </span>
+          <span class="theme-toggle-text">Dark</span>
+        </button>
+
+        <a class="cta" href="/contact">Start a project</a>
+      </div>
+    </header>
+
+    <!-- Drawer toggles (CSS-only) -->
+    <input class="drawer-toggle" type="checkbox" id="drawer-left" />
+    <input class="drawer-toggle" type="checkbox" id="drawer-right" />
+
+    <div class="shell">
+      <!-- LEFT -->
+      <aside class="rail rail-left" aria-label="Navigation">
+        <div class="rail-card">
+          <div class="rail-head">
+            <div class="rail-title">Navigation</div>
+          </div>
+          <nav class="rail-nav">
+            <a href="#top" class="rail-link">Overview</a>
+            <a href="#section-1" class="rail-link">Section</a>
+            <a href="#section-2" class="rail-link">Another section</a>
+          </nav>
         </div>
-        <div>
-            <article class="markdown-body right-section">
-                {{ blog_html }}
-            </article>   
+      </aside>
+
+      <!-- MAIN -->
+      <main class="content" aria-label="Blog content">
+        <article id="top" class="doc">
+          {{ blog_html }}
+        </article>
+      </main>
+
+      <!-- RIGHT -->
+      <aside class="rail rail-right" aria-label="Sidebar">
+        <div class="rail-card">
+          <div class="rail-head">
+            <div class="rail-title">Sidebar</div>
+          </div>
+          <div class="rail-body">
+            Put “On this page”, metadata, tags, etc here.
+          </div>
         </div>
+      </aside>
     </div>
+
+    <!-- Mobile drawer buttons -->
+    <label class="rail-btn rail-btn-left" for="drawer-left">Navigation</label>
+    <label class="rail-btn rail-btn-right" for="drawer-right">Sidebar</label>
+
+    <!-- Backdrops (click to close) -->
+    <label class="backdrop backdrop-left" for="drawer-left"></label>
+    <label class="backdrop backdrop-right" for="drawer-right"></label>
+  </div>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const btn = document.querySelector(".theme-toggle");
+      const text = btn.querySelector(".theme-toggle-text");
+
+      function apply(theme) {
+        root.dataset.theme = theme;
+        btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+        text.textContent = theme === "dark" ? "Light" : "Dark";
+      }
+
+      // initial: saved preference > system preference
+      const saved = localStorage.getItem("theme");
+      const systemPrefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      apply(saved || (systemPrefersDark ? "dark" : "light"));
+
+      btn.addEventListener("click", () => {
+        const next = root.dataset.theme === "dark" ? "light" : "dark";
+        apply(next);
+        localStorage.setItem("theme", next);
+      });
+    })();
+  </script>
 </body>
 </html>

@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 import jinja2
 import markdown
 import markdown.extensions.fenced_code, markdown.extensions.tables, markdown.extensions.admonition, markdown.extensions.codehilite
@@ -23,9 +24,10 @@ def make_default_dirs():
 def get_template(path:str=None) -> jinja2.Template:
     if path == None : raise Exception('path value must not be None')
     path = os.path.join(CONTENT_DIR, path)
-    with open(path, "r+") as file:
-        content = file.read()
-        file.close()
+    # with open(path, "r+") as file:
+    #     content = file.read()
+    #     file.close()
+    content = Path(path).read_text(encoding='utf-8')
     return jinja2.Template(content)
 
 def markdown_to_html(content:str=None):
@@ -42,11 +44,14 @@ def get_blog_page(path:str=None):
     # /blog/project/chapter/index.md
     index_path = os.path.join(*split_path, 'index.md')
     if path_exists(index_path) : return generate_page(index_path) ; print('INDEX PAGE EXISTS')
+    print(index_path)
+
     # /blog/project/chapter.md
     split_path[-1] = split_path[-1] + '.md'
     blog_path = os.path.join(*split_path)
+    print(blog_path)
     if path_exists(blog_path) : return generate_page(blog_path) ; print('BLOG PAGE EXISTS')
-    return generate_page('error/404.md')
+    return generate_page('error/404.md'), 404
 
 
 def generate_page(path:str=None):
