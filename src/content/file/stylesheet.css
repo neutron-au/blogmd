@@ -1,0 +1,147 @@
+:root {
+    --neutron-purple: #8555f6;
+    --neutron-purple-dark: #5b3aa9;
+    --background-color: #151515;
+    --content-background-color: #222222;
+    --dark-color: #333333;
+    --light-color: #555555;
+}
+
+* {
+    font-family: "Open Sans";
+    color: white;
+}
+
+.document {
+    background-color: var(--background-color);
+}
+
+div.content {
+    width: 80%;
+    min-width: 250px;
+    border: 2px solid var(--light-color);
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: var(--content-background-color);
+}
+
+div.horizontal {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    align-content: center;
+}
+
+div.vertical {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-content: center;
+}
+
+hr {
+    border: none; 
+    height: 1px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background-color: var(--light-color);
+}
+
+
+/* set code font for code blocks */
+* code, code * { 
+    font-family: "Source Code Pro" !important; 
+}
+
+pre {
+    scrollbar-width: thin !important; 
+    scrollbar-color: var(--content-background-color) transparent !important; 
+}
+
+code {
+    border-width: 1px;
+    border-color: var(--light-color) !important;
+    background-color: var(--dark-color) !important;
+    border-radius: 3px;
+    border-style: solid;
+    padding: 2px;
+    overflow-x: visible;
+    display: inline-block;
+    
+}
+
+img.author {
+    height: 120px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: 2px solid var(--light-color);
+    margin-right: 15px;
+}
+
+mark {
+    background-color: color-mix(in srgb, var(--neutron-purple) 20%, transparent);
+    border-color: var(--neutron-purple-dark);
+    border-width: 1px;
+    border-radius: 2px;
+    border-style: solid;
+    padding-inline: 3px;
+}
+
+blockquote {
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 1px solid var(--light-color);
+    background-color: var(--background-color);
+    border-radius: 3px;
+    padding: 10px;
+    
+}
+
+blockquote p {
+    font-style: italic;
+}
+
+/* Unchecked */
+input[type="checkbox"] {
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    background: var(--dark-color);
+    border: 1px solid var(--neutron-purple-dark);
+    border-radius: 3px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+input[type="checkbox"][checked] {
+    content: "X";
+    width: 14px;
+    height: 14px;
+    background: var(--neutron-purple);
+    border: 1px solid var(--neutron-purple-dark);
+    border-radius: 3px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+a[href] {
+    color: var(--neutron-purple);
+}
+
+table {
+    border-collapse: collapse;
+    display: inline-block;
+    overflow-x: auto;
+
+}
+
+th, td {
+    padding: 8px 14px;
+    border: 1px solid var(--light-color);
+}
+
+thead th {
+    background-color: var(--dark-color);
+}
