@@ -21,9 +21,9 @@ def start(host:str='0.0.0.0', port:int=8081, debug:bool=False) -> flask.Flask:
     @app.route('/', methods=['GET'])
     def root() : return '/blog/', 304
 
-    # /blog/
-    @app.route('/blog/', methods=['GET'])
-    def blog_root() : return '/blog/example-md', 304
+    # # /blog/
+    # @app.route('/blog/', methods=['GET'])
+    # def blog_root() : return '/blog/example-md', 304
 
     @app.route('/<path:branch>/', methods=['GET'])
     def get_file(branch):
