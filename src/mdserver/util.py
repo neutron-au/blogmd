@@ -8,7 +8,6 @@ import markdown.extensions.fenced_code, markdown.extensions.tables, markdown.ext
 import flask
 
 MD_EXTENSIONS = ['tables', 'fenced_code', 'admonition', 'pymdownx.tasklist']
-
 CONTENT_DIR = 'content'
 
 def path_exists(path:str=None):
@@ -75,7 +74,7 @@ def generate_blog_header(metadata:dict) -> str:
     author = get_author_info(metadata.get('author'))
     author_name = author.get('name', 'Unknown Author')
     author_avatar = author.get('avatar', 'https://t4.ftcdn.net/jpg/11/26/55/79/360_F_1126557938_wxG9ULpFu2ZcuOVUVo6aM0QRfZVrgvqq.jpg')
-    blog_template = get_template('file/blog_header.html')
+    blog_template = get_template('static/blog_header.html')
     return blog_template.render(
         title=title, 
         author_name=author_name, 
@@ -94,8 +93,8 @@ def generate_page(path:str=None):
         post = frontmatter.loads(blog_md)
         blog_header_html = generate_blog_header(post.metadata)
         blog_md_html = markdown_to_html(post.content)
-        autorefresh_js = Path(CONTENT_DIR, 'file/autoreload.js').read_text()
-        blog_template = get_template('file/view_blog.html')
+        autorefresh_js = Path(CONTENT_DIR, 'static/autoreload.js').read_text()
+        blog_template = get_template('static/view_blog.html')
         return blog_template.render(header_html=blog_header_html, blog_html=blog_md_html, autorefresh_js=autorefresh_js)
-    except FileNotFoundError:
+    except (RecursionError, FileNotFoundError):
         return generate_page('error/404.md')

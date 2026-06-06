@@ -5,12 +5,12 @@ from .util import make_default_dirs, generate_page, send_file_raw, get_blog_page
 
 def get_file(filename):
     # return 404 if file doesn't exist
-    if f'{filename}' not in os.listdir('file/') : return generate_page('error/404.md'), 404
-    return flask.send_file(f'file/{filename}')
+    if f'{filename}' not in os.listdir('static/') : return generate_page('error/404.md'), 404
+    return flask.send_file(f'static/{filename}')
 
 
-def start(host:str='0.0.0.0', port:int=8080, debug:bool=False) -> flask.Flask:
-    app = flask.Flask('markdown-server')
+def start(host:str='0.0.0.0', port:int=8081, debug:bool=False) -> flask.Flask:
+    app = flask.Flask('markdown-server', static_folder='./content/static/')
     app.url_map.strict_slashes = False
 
     # /favicon.ico
@@ -33,13 +33,16 @@ def start(host:str='0.0.0.0', port:int=8080, debug:bool=False) -> flask.Flask:
         #
         split_branch = list(filter(None, branch.split('/')))
         domain = split_branch[0]
-        # /file/ branch
-        if domain == 'file':
-            path = os.path.join(*split_branch)
-            return send_file_raw(path)
+        match domain:
+            case 'static':
+                path = os.path.join(*split_branch)
+                return send_file_raw(path)
+            case 'blog':
+                return get_blog_page(branch)
+            case _:
+                return 'error', 404
         
-        # /blog/ branch
-        if domain == 'blog' : return get_blog_page(branch)
+
 
     make_default_dirs()
     app.run(host, port, debug)
