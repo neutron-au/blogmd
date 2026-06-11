@@ -7,7 +7,23 @@ import json
 import markdown.extensions.fenced_code, markdown.extensions.tables, markdown.extensions.admonition, markdown.extensions.codehilite
 import flask
 
-MD_EXTENSIONS = ['tables', 'fenced_code', 'admonition', 'pymdownx.tasklist']
+from pymdownx import emoji
+
+
+MD_EXTENSIONS = [
+    'tables', 'fenced_code', 'admonition', 
+    'pymdownx.tasklist', 'pymdownx.caret', 'pymdownx.mark',
+    'pymdownx.smartsymbols', 'pymdownx.magiclink', 'pymdownx.saneheaders',
+    'pymdownx.emoji', 'pymdownx.keys'
+]
+
+MD_EXTENSION_CONFIGS = {
+    'pymdownx.emoji': {
+        'emoji_index': emoji.gemoji,
+        'emoji_generator': emoji.to_alt
+    }
+}
+
 CONTENT_DIR = 'content'
 
 def path_exists(path:str=None):
@@ -32,7 +48,7 @@ def parse_blog_frontmatter(content:str):
 
 def markdown_to_html(content:str=None):
     if content == None : raise Exception('content value must not be None')
-    return markdown.markdown(content, extensions=MD_EXTENSIONS)
+    return markdown.markdown(content, extensions=MD_EXTENSIONS, extension_configs=MD_EXTENSION_CONFIGS)
 
 def send_file_raw(path:str=None):
     path = os.path.join(CONTENT_DIR, path)

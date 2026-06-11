@@ -1,6 +1,7 @@
 :root {
     --neutron-purple: #8555f6;
     --neutron-purple-dark: #5b3aa9;
+    --neutron-purple-light: #9b72f2;
     --background-color: #151515;
     --content-background-color: #222222;
     --dark-color: #333333;
@@ -25,6 +26,18 @@ div.content {
     border-radius: 5px;
     padding: 20px;
     background-color: var(--content-background-color);
+    overflow-x: auto;       
+    box-sizing: border-box; 
+}
+
+@media (max-width: 600px) {
+    div.content {
+        width: 100%;
+        min-width: unset;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
 }
 
 div.horizontal {
@@ -60,6 +73,12 @@ pre {
     scrollbar-color: var(--content-background-color) transparent !important; 
 }
 
+* button, button * {
+    background-color: transparent;
+    border: 1px solid var(--neutron-purple);
+    border-radius: 3px;
+}
+
 code {
     border-width: 1px;
     border-color: var(--light-color) !important;
@@ -67,17 +86,23 @@ code {
     border-radius: 3px;
     border-style: solid;
     padding: 2px;
-    overflow-x: visible;
-    display: inline-block;
-    
+    overflow-x: auto;
+    display: inline-block;    
 }
 
 img.author {
-    height: 120px;
+    width: 60px;
+    height: 60px;
     aspect-ratio: 1/1;
     border-radius: 50%;
     border: 2px solid var(--light-color);
     margin-right: 15px;
+}
+
+img.emojione {
+    height: 1rem;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 mark {
@@ -127,21 +152,43 @@ input[type="checkbox"][checked] {
 }
 
 a[href] {
-    color: var(--neutron-purple);
+    color: var(--neutron-purple-light);
 }
 
 table {
-    border-collapse: collapse;
-    display: inline-block;
-    overflow-x: auto;
-
+  display: inline-block;
+  width: max-content;
+  overflow-x: auto;
+  max-width: 100%;
+  border-collapse: collapse;
+  scrollbar-width: thin !important; 
+  scrollbar-color: var(--light-color) transparent !important;
+  -webkit-overflow-scrolling: touch;
 }
 
 th, td {
     padding: 8px 14px;
     border: 1px solid var(--light-color);
+    overflow-wrap: normal;
+    word-break: normal;
+    min-width: 20ch;
 }
 
 thead th {
     background-color: var(--dark-color);
+}
+
+kbd {
+    border: 1px solid var(--light-color);
+    border-radius: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
+    background-color: var(--dark-color);
+}
+
+video {
+    border-radius: 3px;
+    border-bottom: 1px solid var(--neutron-purple);
+    width: 40%;
+    aspect-ratio: auto;
 }

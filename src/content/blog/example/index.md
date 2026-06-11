@@ -1,7 +1,13 @@
-# Markdown Feature Test Document
+---
+title: Markdown Feature Test Document
+author: mitch
+created_utc: 11th June 2026
+---
 
-This document demonstrates most common Markdown features and many extended features supported by modern Markdown renderers.
-You can view this content by going [here](localhost:8080/blog/example).
+
+
+> This document demonstrates most common Markdown features and many extended features supported by modern Markdown renderers.
+
 ---
 
 This is some <mark>highlighted text</mark>, i really hope you enjoy it!
@@ -149,11 +155,11 @@ Email:
 
 ## Images
 
-![Placeholder Image](https://via.placeholder.com/300x150)
+![Placeholder Image](https://placehold.co/300x150)
 
 Linked image:
 
-[![Placeholder](https://via.placeholder.com/150)](https://example.com)
+[![Placeholder](https://placehold.co/150)](https://example.com)
 
 ---
 
@@ -222,11 +228,27 @@ This is plain text.
 ```
 ---
 
+## Testing
+
+#123
+
+:smile:
+
+:call_me:
+
+Hello, world! :rofl:
+
+(tm)
+
+<-->
+
+`<-->`
+
 ## Tables
 
 | Name | Age | City |
 |------|-----|------|
-| Alice | 25 | Perth |
+| ==Alice== | 25 | Perth |
 | Bob | 30 | Sydney |
 | Charlie | 35 | Melbourne |
 
@@ -336,7 +358,7 @@ Hidden content inside details tag.
 
 ## Keyboard Keys
 
-<kbd>Ctrl</kbd> + <kbd>C</kbd>
+++ctrl+k++
 
 <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>
 
