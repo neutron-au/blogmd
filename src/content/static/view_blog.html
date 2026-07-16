@@ -18,7 +18,7 @@
         <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"></noscript>
 
         <!-- highlight.js JS: already async, no change needed -->
-        <script async src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <script async  onload="hljs.highlightAll()" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
         <!-- our stylesheet -->
         <link rel="stylesheet" href="/static/stylesheet.css"/>
@@ -31,5 +31,5 @@
             {{ blog_html }}
         </div>
     </body>
-<script>hljs.highlightAll();</script>
+<!-- <script>hljs.highlightAll();</script> -->
 </html>
