@@ -7,21 +7,22 @@ import json
 import markdown.extensions.fenced_code, markdown.extensions.tables, markdown.extensions.admonition, markdown.extensions.codehilite
 import flask
 
-from pymdownx import emoji
+from pymdownx import emoji, mark, highlight, arithmatex
 
 
 MD_EXTENSIONS = [
-    'tables', 'fenced_code', 'admonition', 
+    'tables', 'fenced_code', 'admonition', 'toc',
     'pymdownx.tasklist', 'pymdownx.caret', 'pymdownx.mark',
     'pymdownx.smartsymbols', 'pymdownx.magiclink', 'pymdownx.saneheaders',
-    'pymdownx.emoji', 'pymdownx.keys'
+    'pymdownx.emoji', 'pymdownx.keys', 'pymdownx.superfences', 'pymdownx.highlight',
+    'pymdownx.arithmatex'
 ]
 
 MD_EXTENSION_CONFIGS = {
     'pymdownx.emoji': {
         'emoji_index': emoji.gemoji,
         'emoji_generator': emoji.to_alt
-    }
+    },
 }
 
 CONTENT_DIR = 'content'

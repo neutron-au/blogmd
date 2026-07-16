@@ -16,9 +16,28 @@
         <!-- highlight.js CSS: already async, no change needed -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" media="print" onload="this.media='all'; this.onload=null;">
         <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"></noscript>
-
         <!-- highlight.js JS: already async, no change needed -->
         <script async  onload="hljs.highlightAll()" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['\\(', ')\\']],
+                    displayMath: [['$', '$']]
+                },
+                options: {
+                    makeCollapsible: false,
+                    enableMenu: false,
+                    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+                    menuOptions: {
+                        settings: {
+                            enrich: false,
+                        }
+                    }
+                }
+            };
+        </script>
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-mml-svg.min.js"></script>
 
         <!-- our stylesheet -->
         <link rel="stylesheet" href="/static/stylesheet.css"/>

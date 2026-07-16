@@ -79,6 +79,13 @@ pre {
     border-radius: 3px;
 }
 
+/* mjx-container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+} */
+
 code {
     border-width: 1px;
     border-color: var(--light-color) !important;
@@ -88,6 +95,12 @@ code {
     padding: 2px;
     overflow-x: auto;
     display: inline-block;    
+}
+
+p code {
+    display: inline;
+    word-break: break-word;
+    
 }
 
 img.author {
