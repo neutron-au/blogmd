@@ -13,14 +13,14 @@ class BlogContent:
         self._parse()
         
     def _resolve_file_path(self):
-        # default blog path
-        blog_path = str(pathlib.Path(self.path)) + '.md'
+        # blog and folder index paths
         index_path = pathlib.Path(self.path) / 'index.md'
+        blog_path = str(pathlib.Path(self.path)) + '.md'
         
         if index_path.exists():
-            self.path = index_path
+            self.path = str(index_path)
         else:
-            self.path = blog_path
+            self.path = str(blog_path)
 
     def _load_from_file(self):
         #

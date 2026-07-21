@@ -40,6 +40,5 @@ class RenderedMarkdown:
         #
         # render markdown and save to self.output
         #
-        print(self._md_content)
         self.output = markdown.markdown(self._md_content, extensions=MD_EXTENSIONS, extension_configs=MD_EXTENSION_CONFIGS)
         return self.output

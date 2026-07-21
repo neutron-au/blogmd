@@ -14,5 +14,5 @@ class BlogAuthor:
             data = json.loads(content)
             self.avatar = data.get('avatar', None)
         else:
-            print('author does not exist!!!')
+            Warning(f'Author does not exist: {self.name=}')
         return {}

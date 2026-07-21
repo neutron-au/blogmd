@@ -23,7 +23,6 @@ def send_file_raw(path:str=None):
 
 def send_blog_page(path:str=None):
     path = str(ROOT_FOLDER / path)
-    print(path)
 
     # load template
     template = RenderedTemplate(STATIC_FOLDER / 'blog_post.html')
