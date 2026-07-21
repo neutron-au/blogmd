@@ -8,6 +8,7 @@ class BlogPage(BasePage):
     def __init__(self, path:str):
         super().__init__(path)
 
+
     def render(self):
         """
         Render full plain HTML page content from markdown file.
