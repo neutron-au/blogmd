@@ -31,7 +31,6 @@ class BlogContent:
         # if fetching actual blog post
         path = pathlib.Path(self.path)
         self._raw = path.read_text(encoding='utf-8')
-                        
 
     def _parse(self):
         #
@@ -40,3 +39,6 @@ class BlogContent:
         post = frontmatter.load(self.path)
         self.headers = post.metadata
         self.content = post.content
+
+    def _resolve_author(self):
+        pass

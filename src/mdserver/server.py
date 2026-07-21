@@ -48,7 +48,8 @@ def start(host:str='0.0.0.0', port:int=8081, debug:bool=False) -> flask.Flask:
                 path = os.path.join(*split_branch)
                 return send_file_raw(path)
             case 'blog':
-                return BlogPage(path=branch).render()
+                try : return BlogPage(path=branch).render()
+                except : return BlogPage(path='error/404').render()
             case _:
                 return 'error', 404
         

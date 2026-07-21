@@ -13,6 +13,7 @@ class BlogAuthor:
             content = author_file.read_text(encoding='utf-8')
             data = json.loads(content)
             self.avatar = data.get('avatar', None)
+            self.name = data.get('name', self.name)
         else:
             Warning(f'Author does not exist: {self.name=}')
         return {}
