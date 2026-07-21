@@ -29,14 +29,8 @@ The purpose of an engine management system (ECU) is to read the value of various
 
 On paper it sounds simple, but it involves the design and development of hardware, the firmware running on the ECU itself, and the tuning software. All three of these are relatively tightly coupled to eachother, mostly the firmware and tuning software, and I am actively implementing mechanisms that make `ECU <--> Tuning Software` communication much more dynamic. 
 
-### Social Media Platform (Social)
+### Social Media Platform (Social) - TODO
 Earlier this year my girlfriend and I deleted snapchat, to try and detox from social media. I enjoyed it so much that I wondered if a "social media for people who hate social media" would be feasible. The more I thought about it, the more I wanted to make it.
 
-The goal is to make it highly scalable, and even if it never has to scale because it never gains traction, well then it's still a good learning opportunity nonetheless. I'll be working on this with at least one other friend who I attend university with, Dylan.
+The goal is to make it highly scalable, and even if it never has to scale because it never gains traction, well then it's still a good learning opportunity nonetheless. I'll be working on this with at least one other friend.
 
-
-<!-- <script>
-    setInterval(function() {
-        location.reload();
-    }, 1000); 
-</script> -->
