@@ -13,4 +13,4 @@ For the most part I've been working on the refactor of [BlogMD](https://github.c
 
 | Published | Link |
 | :-------: | :--: |
-| *16/07/2026* | [Overview of the MetaConfig system for Theta](/blog/dev/16-07-2026)
+| *16/07/2026* | [Overview of the MetaConfig system for Theta](/blog/weekly/16-07-2026)

@@ -37,6 +37,7 @@ div.content {
         border-radius: 0;
         border-left: none;
         border-right: none;
+        font-size: 1.15rem; /* bump from default 1rem/16px */
     }
 }
 
