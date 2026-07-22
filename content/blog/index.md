@@ -24,10 +24,11 @@ From now on, <mark>[/blog/dev/](/blog/dev/)</mark> will be the place where I put
 
 Here's a list of the different areas I write my blogs:
 
-|    Area     |           Index Page            |
-|  :-------:  | :-----------------------------: |
-| Weekly Blog | [/blog/weekly/](/blog/weekly/)  |
-| Theta       | [/blog/theta/](/blog/theta/)    |
+|    Area     |            Index Page            |
+| :---------: | :------------------------------: |
+| Weekly Blog | [/blog/weekly/](/blog/weekly/)   |
+| Theta       | [/blog/theta/](/blog/theta/)     |
+| Example     | [/blog/example/](/blog/example/) |
 
 
 
