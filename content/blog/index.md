@@ -18,7 +18,18 @@ updated_utc: 5th June, 2026
 ## Overview
 I recently just began my two month mid-semester break from university. I'd love to spend all of that time programming and making things, but that becomes quite laborious, and I thought that writing a blog post thoughout or at the end of each working day might help break things up, and maybe even help me gain a better understanding of myself and the things I make.
 
-From now on, <mark>/blog/personal/</mark> will be the place where I put all my daily blogs. One a day. Maybe more. I'm not too sure yet, I infrequently think that far ahead.
+From now on, <mark>[/blog/dev/](/blog/dev/)</mark> will be the place where I put all my daily blogs. One a day. Maybe more. I'm not too sure yet, I infrequently think that far ahead.
+
+<hr>
+
+Here's a list of the different areas I write my blogs:
+
+|    Area     |           Index Page            |
+|  :-------:  | :-----------------------------: |
+| Weekly Blog | [/blog/weekly/](/blog/weekly/)  |
+| Theta       | [/blog/theta/](/blog/theta/)    |
+
+
 
 ---
 ## Current Projects
