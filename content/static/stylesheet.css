@@ -104,6 +104,15 @@ p code {
     
 }
 
+img:not(.author) {
+    display: inline-block;
+    width: auto;
+    overflow-x: auto;
+    max-width: 100%;
+    padding-left: 10px;
+    border-left: 2px solid var(--neutron-purple-dark);
+}
+
 img.author {
     width: 60px;
     height: 60px;

@@ -16,6 +16,6 @@ updated_utc: "..."
 ### Overview
 Total Cost: $709.11
 
-<script>
+<!-- <script>
     setTimeout(() => { window.location.reload()}, 1000)
-</script>
+</script> -->
