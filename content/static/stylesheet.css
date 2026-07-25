@@ -8,6 +8,11 @@
     --light-color: #555555;
 }
 
+::selection {
+    background-color: color-mix(in srgb, var(--neutron-purple) 50%, transparent);
+    color: white;
+}
+
 * {
     font-family: "Open Sans";
     color: white;
