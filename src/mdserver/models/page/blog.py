@@ -31,6 +31,8 @@ class BlogPage(BasePage):
         blog_template = RenderedTemplate(STATIC_FOLDER / 'blog_post.html')
         blog_template.add_content('header_html', header_template.render())
         blog_template.add_content('blog_html', blog_body_html)
+        blog_template.add_content('blog', blog_headers)
+        blog_template.add_content('author', author)
 
         return blog_template.render()
 

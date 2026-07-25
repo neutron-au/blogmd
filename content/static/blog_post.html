@@ -3,11 +3,12 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta property="og:title" content="{{ title }}" />
-        <meta property="og:description" content="{{ description }}" />
+        <meta property="og:title" content="{{ blog.title }}" />
+        <meta property="og:description" content="{{ blog.description }}" />
+        <meta property="og:author" content="{{ author.name }}" />
         <meta property="og:site_name" content="Mitch Naake" />
         
-        <title>{{ title }}</title>
+        <title>{{ blog.title }}</title>
         <!-- Fonts: preconnect first, then load async via print trick -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
