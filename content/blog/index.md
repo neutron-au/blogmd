@@ -26,8 +26,6 @@ Here's a list of the different areas I write my blogs:
 
 |    Area     |            Index Page            |
 | :---------: | :------------------------------: |
-| Weekly Blog | [/blog/weekly/](/blog/weekly/)   |
-| Theta       | [/blog/theta/](/blog/theta/)     |
 | Example     | [/blog/example/](/blog/example/) |
 
 
