@@ -1,26 +1,23 @@
 import os
 import flask
-from .util import make_default_dirs, send_file_raw, send_blog_page
+import uvicorn
+from asgiref.wsgi import WsgiToAsgi
 import pathlib
+from .util import make_default_dirs, send_file_raw, send_blog_page
+from mdserver.var import DEBUG, ROOT_FOLDER, STATIC_FOLDER
 
 from mdserver.models.page import BlogPage
 
-path = os.environ.get('CONTENT_PATH', './content')
-ROOT_CONTENT_PATH = pathlib.Path(path)
-STATIC_CONTENT_FOLDER = ROOT_CONTENT_PATH / 'static'
 
 
 def get_file(filename):
     # return 404 if file doesn't exist
-    if f'{filename}' not in os.listdir(STATIC_CONTENT_FOLDER) : return send_blog_page('error/404.md'), 404
-    return flask.send_file(f'static/{filename}')
+    if f'{filename}' not in os.listdir(STATIC_FOLDER) : return send_blog_page('error/404.md'), 404
+    return flask.send_file(STATIC_FOLDER / filename)
 
 
-def start(host:str='0.0.0.0', port:int=8081, debug:bool=False) -> flask.Flask:
-
-    static_content_folder = ROOT_CONTENT_PATH / 'static'
-    
-    app = flask.Flask('markdown-server', static_folder=static_content_folder, template_folder=ROOT_CONTENT_PATH)
+def start(host:str='0.0.0.0', port:int=8081) -> flask.Flask:    
+    app = flask.Flask('markdown-server', static_folder=STATIC_FOLDER, template_folder=ROOT_FOLDER)
     app.url_map.strict_slashes = False
 
     # /favicon.ico
@@ -56,4 +53,11 @@ def start(host:str='0.0.0.0', port:int=8081, debug:bool=False) -> flask.Flask:
 
 
     make_default_dirs()
-    app.run(host, port, debug)
+
+    print(f'{DEBUG=}')
+
+    if DEBUG:
+        app.run(host, port, DEBUG)
+    else:
+        asgi_app = WsgiToAsgi(app)
+        uvicorn.run(asgi_app, host=host, port=port)
